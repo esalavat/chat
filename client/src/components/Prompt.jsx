@@ -1,9 +1,15 @@
 import React from 'react';
+import UUID from "node-uuid";
 
-const Prompt = () => {
+const Prompt = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("message: " + e.target.elements.message.value);
+        props.addLine({
+            id: UUID.v4(),
+            timestamp: Date.now(),
+            from: props.username,
+            message: e.target.elements.message.value
+        });
     }
 
     return (
