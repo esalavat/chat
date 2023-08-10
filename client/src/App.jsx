@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Chats from "./components/Chats";
 import Prompt from "./components/Prompt";
 import Username from "./components/Username";
@@ -14,8 +14,21 @@ const App = () => {
         ]
     );
 
+    let ws = useRef(null);
+
+    useEffect(() => {
+        ws.current = new WebSocket("ws://localhost:5000");
+        ws.current.onopen = (e) => {
+            console.log("onopen", e);
+        };
+        ws.current.onmessage = (event) => {
+            console.log("onmessage", JSON.parse(event.data));
+            setLines(prev => [...prev, JSON.parse(event.data)]);
+        }    
+    },[]);
+    
     const addLine = (line) => {
-        setLines(prev => [...prev, line]);
+        ws.current.send(JSON.stringify(line));
     }
 
     const changeUsername = (name) => {

@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Chats = (props) => {
+    
     console.log(props.lines);
+
     return (
         <ul>
             {props.lines.map((line) => (
