@@ -1,11 +1,11 @@
 import React from 'react';
-import UUID from "node-uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const Prompt = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.addLine({
-            id: UUID.v4(),
+            id: uuidv4(),
             timestamp: Date.now(),
             from: props.username,
             message: e.target.elements.message.value
