@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Chats from "./components/Chats";
 import Prompt from "./components/Prompt";
 import Username from "./components/Username";
+import "./app.css";
 
 const App = () => {
     
@@ -37,7 +38,7 @@ const App = () => {
 
     return (
         <div>
-            <h1>Chat App</h1>
+            <h1 className="text-primary text-4xl font-bold">Chat App</h1>
             <Username username={username} changeUsername={changeUsername} />
             <Chats lines={lines} />
             <Prompt username={username} addLine={addLine} />
