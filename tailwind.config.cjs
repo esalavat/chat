@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./client/src/**/*.{js,jsx}', './client/src/index.html'],
     theme: {
@@ -8,10 +9,8 @@ module.exports = {
         },
     },
     plugins: [],
-    "tailwindCSS.emmetCompletions": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.quickSuggestions": {
-        "strings": true
-    },
-    "css.validate": false,
+    
+    corePlugins: {
+        preflight: false,
+    }
 };
