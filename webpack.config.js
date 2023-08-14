@@ -40,7 +40,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    alias: {
+      components: path.resolve(__dirname, 'client/src/components'),
+    },
+    extensions: ['', '.js', '.jsx']
   },
   output: {
     path: path.resolve(__dirname, "client/dist"),

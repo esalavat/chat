@@ -1,5 +1,5 @@
 import React from "react";
-import ChangeUsername from "./ChangeUsername";
+import ChangeUsername from "components/ChangeUsername";
 
 const Username = (props) => {
 
