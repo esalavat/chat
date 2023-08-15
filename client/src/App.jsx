@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "components/Layout";
-import Chats from "components/Chats";
+import ChatRoom from "components/ChatRoom";
 import Prompt from "components/Prompt";
 import Username from "components/Username";
 
@@ -38,7 +38,7 @@ const App = () => {
                 <Username username={username} changeUsername={changeUsername} />
             </div>
             <div className="flex-auto overflow-y-scroll">
-                <Chats lines={lines} />
+                <ChatRoom lines={lines} />
             </div>
             <div className="flex-initial shadow-lg">
                 <Prompt username={username} addLine={addLine} />

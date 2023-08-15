@@ -10,6 +10,7 @@ const Prompt = (props) => {
             from: props.username,
             message: e.target.elements.message.value
         });
+        e.target.elements.message.value = "";
     }
 
     return (
