@@ -5,7 +5,7 @@ const Chats = (props) => {
     console.log(props.lines);
 
     return (
-        <ul>
+        <ul className="p-2">
             {props.lines.map((line) => (
                 <li key={line.id} title={line.timestamp}>{line.from}: {line.message}</li>
             ))}

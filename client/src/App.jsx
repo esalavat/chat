@@ -3,18 +3,12 @@ import Layout from "components/Layout";
 import Chats from "components/Chats";
 import Prompt from "components/Prompt";
 import Username from "components/Username";
-import "./app.css";
 
 const App = () => {
     
     const [username, setUsername] = useState("Anon");
 
-    const [lines, setLines] = useState(
-        [
-            {"id": "1", "from": "Eric", "message": "Hello World!", "timestamp": 12345},
-            {"id": "2", "from": "Lisa", "message": "Hi there", "timestamp": 12346}
-        ]
-    );
+    const [lines, setLines] = useState([]);
 
     let ws = useRef(null);
 
@@ -38,12 +32,18 @@ const App = () => {
     }
 
     return (
-        <Layout>
-            <h1 className="text-primary text-4xl font-bold">Chat App</h1>
-            <Username username={username} changeUsername={changeUsername} />
-            <Chats lines={lines} />
-            <Prompt username={username} addLine={addLine} />
-        </Layout>
+        <div className="flex flex-col h-full">
+            <div className="flex-initial">
+                <h1 className="bg-slate-600 text-white text-4xl font-bold p-2">Chat App</h1>
+                <Username username={username} changeUsername={changeUsername} />
+            </div>
+            <div className="flex-auto overflow-y-scroll">
+                <Chats lines={lines} />
+            </div>
+            <div className="flex-initial shadow-lg">
+                <Prompt username={username} addLine={addLine} />
+            </div>
+        </div>
     );
 };
 

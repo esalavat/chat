@@ -18,11 +18,11 @@ const ChangeUsername = (props) => {
     return (
         <>
             { !editMode 
-                ? <button onClick={toggleEditMode}>Change Username</button>
+                ? <button onClick={toggleEditMode} className="ml-3 hover:underline">Edit</button>
                 :
                     <form onSubmit={handleSubmit}>
-                        <input type="text" name="username" defaultValue={props.username}></input>
-                        <button type="submit">Change</button>
+                        <input type="text" name="username" defaultValue={props.username} className="text-black border rounded-xl px-2 py-1"></input>
+                        <button type="submit" className="bg-sky-600 hover:bg-sky-700 px-2 py-1 ml-2 text-white rounded-lg">Change</button>
                     </form>
             }
         </>
