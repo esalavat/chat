@@ -22,7 +22,7 @@ const ChangeUsername = (props) => {
                 :
                     <form onSubmit={handleSubmit}>
                         <input type="text" name="username" defaultValue={props.username} className="text-black border rounded-xl px-2 py-1"></input>
-                        <button type="submit" className="bg-sky-600 hover:bg-sky-700 px-2 py-1 ml-2 text-white rounded-lg">Change</button>
+                        <button type="submit" className="bg-sky-500 hover:bg-sky-600 px-2 py-1 ml-2 text-white rounded-lg">Change</button>
                     </form>
             }
         </>

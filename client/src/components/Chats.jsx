@@ -2,7 +2,7 @@ import React from 'react';
 
 const Chats = (props) => {
     
-    console.log(props.lines);
+    //console.log(props.lines);
 
     return (
         <ul className="p-2">
