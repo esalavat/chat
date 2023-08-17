@@ -48,6 +48,8 @@ wsServer.on("connection", (socket) => {
     });
 
     socket.on("close", () => {
+        console.log("onClose: ", id);
+
         removeUser(id);
     });
 });
@@ -88,10 +90,12 @@ const handleChangeUser = (data, socket) => {
 const changeUser = (user, socket) => {
     users[user.id] = user.username;
     sendUserAccept(user, socket);
+    broadcastUsers();
 }
 
 const removeUser = (id) => {
-    delete users.id;
+    delete users[id];
+    broadcastUsers();
 }
 
 const userExists = (user, socket) => {
@@ -108,12 +112,17 @@ const addUser = (user, socket) => {
 
     sendUserAccept(user, socket);
 
-    const usersEvent = {
+    broadcastUsers();
+}
+
+const broadcastUsers = () => {
+    
+    const event = {
         eventType: "users",
         eventData: Object.values(users)
     }
 
-    broadcast(usersEvent);
+    broadcast(event);
 }
 
 const sendUserAccept = (user, socket) => {
@@ -123,6 +132,7 @@ const sendUserAccept = (user, socket) => {
     }
 
     socket.send(JSON.stringify(event));
+    broadcastUsers();
 }
 
 const broadcast = (event) => {
