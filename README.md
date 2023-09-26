@@ -7,6 +7,7 @@ Chat application to practice React and WebSockets.
 1. npm install
 2. npm start
 
-## Prod Build
+## Prod Build and run
 
-1. npm build
+1. npm run build
+2. node server.js
